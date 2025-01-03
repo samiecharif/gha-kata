@@ -51,5 +51,5 @@ jobs:
    runs-on: ubuntu-latest
      steps:
      - name: Notify
-       run: echo "Echec de deploiement"
+       run: echo "Echec de deploiement "
         
