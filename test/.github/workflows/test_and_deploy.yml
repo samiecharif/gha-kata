@@ -1,4 +1,4 @@
-name: test and deploy 
+name: test and deploy
 
 on:
   push:
@@ -9,47 +9,46 @@ on:
         required: true
         type: choice
         options:
-         - deploiement
-         - test add
-         - test sub
-         - test all
-         default: "deploiement"
+          - deploiement
+          - test add
+          - test sub
+          - test all
+        default: "deploiement"
 
 jobs:
   test_add:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-     - name: Checkout
-      uses: actions/checkout@v3
-     - name: Setup-node
-      uses: actions/setup-node@v3
-      with:
-       node-version: 16
-     - name: setup ci
-       run: npm ci
-     - name: test
-       run: npm run test_add
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup-node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: setup ci
+        run: npm ci
+      - name: test
+        run: npm run test_add
   test_sub:
-   runs-on: ubuntu-latest
-     steps:
-     - name: Checkout
-      uses: actions/checkout@v3
-     - name: Setup node
-      uses: actions/setup-node@v3
-      with:
-       node-version: 16
-     - name: setup ci
-       run: npm ci
-     - name: test
-       run: npm run test_sub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: setup ci
+        run: npm ci
+      - name: test
+        run: npm run test_sub
   deploy:
-   runs-on: ubuntu-latest
-     steps: 
-     - name: Deploy
-       run: echo "Deployement effectue avec succes"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: echo "Deployement effectue avec succes"
   notify_failure:
-   runs-on: ubuntu-latest
-     steps:
-     - name: Notify
-       run: echo "Echec de deploiement "
-        
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify
+        run: echo "Echec de deploiement "
